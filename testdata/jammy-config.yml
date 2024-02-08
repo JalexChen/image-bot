@@ -1,0 +1,43 @@
+apt:
+  - docker-ce
+  - containerd.io
+  - docker-compose-plugin
+
+github:
+# unofficial repository that tracks the official release version from release notes
+  gcloud:
+    owner: twistedpair
+    repo: google-cloud-sdk
+    ref: 4
+  git-lfs:
+    owner: git-lfs
+    repo: git-lfs
+  gradle:
+    owner: gradle
+    repo: gradle
+  lein:
+    owner: technomancy
+    repo: leiningen
+  node:
+    owner: nodejs
+    repo: node
+    versions:
+      nodelts: v20
+      nodeCurrent: v21
+  maven:
+    owner: apache
+    repo: maven
+  pyenv:
+    owner: pyenv
+    repo: pyenv
+  ruby:
+    owner: ruby
+    repo: ruby
+  sbt:
+    owner: sbt
+    repo: sbt
+  yq:
+    owner: mikefarah
+    repo: yq
+
+go: https://go.dev/dl/?mode=json

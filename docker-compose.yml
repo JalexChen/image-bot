@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  image-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '5002:5002'
+    volumes:
+      - ./:/image-bot
+    env_file:
+      - ./.env
+    tty: true
+    restart: unless-stopped
+    container_name: image-bot

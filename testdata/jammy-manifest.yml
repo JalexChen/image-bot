@@ -1,0 +1,33 @@
+containerd_io: 1.6.25-1
+docker_ce: 5:24.0.7-1~ubuntu.22.04~jammy
+docker_compose_plugin: 2.21.0-1~ubuntu.22.04~jammy
+git_lfs: 3.4.0
+go: 1.21.5
+google_cloud_sdk: 456.0.0
+gradle: "8.5"
+java:
+    - 8
+    - 17
+leiningen: 2.10.0
+maven: 3.9.6
+nodeCurrent: 21.4.0
+nodelts: 20.10.0
+npm:
+    - coffeescript
+    - grunt-cli
+    - grunt
+    - bower
+    - nodeunit
+    - mocha
+    - yarn
+pip:
+    - virtualenv
+    - nose
+    - pep8
+pyenv: 2.3.34
+python2: 2.7.18
+python3: 3.12.0
+ruby: 3.2.2
+sbt: 1.9.7
+yarn: 1.22.19
+yq: 4.40.4

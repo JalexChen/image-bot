@@ -1,0 +1,54 @@
+version: 2.1
+
+orbs:
+  gh: circleci/github-cli@2.2.0
+
+workflows:
+  main-wf:
+    jobs:
+      - lint
+      - tests:
+          context: cimg-publishing
+          requires:
+            - lint
+
+jobs:
+  tests:
+    machine:
+      image: ubuntu-2204:current
+    environment:
+      GITHUB_TOKEN: $IMAGE_BOT_TOKEN
+    steps:
+      - setup
+      - gh/setup:
+          token: GITHUB_TOKEN
+      - run:
+          name: run tests
+          command: ./do test
+      - run:
+          name: ensure command runs
+          command: |
+            go run main.go -c testdata/jammy-config.yml -m testdata/jammy-manifest.yml
+
+  lint:
+    machine:
+      image: ubuntu-2204:current
+    steps:
+      - setup
+      - run:
+          name: go tidy
+          command: go mod tidy -v
+      - run:
+          name: verify no changes
+          command: git diff --exit-code
+      - run:
+          name: run linter
+          command: ./do lint
+
+commands:
+  setup:
+    steps:
+      - checkout
+      - run: go version
+      - run: go mod download
+      - run: ./do install-devtools
